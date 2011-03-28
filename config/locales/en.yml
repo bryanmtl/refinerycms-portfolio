@@ -1,7 +1,7 @@
 en:
   plugins:
     portfolio:
-      title: Portfolio
+      title: Listing Photos
       description: Manage a portfolio within Refinery CMS
   admin:
     portfolio:
