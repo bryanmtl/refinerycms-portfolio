@@ -15,6 +15,7 @@
       <% end %>
     </p>
   <% end %>
+  <%= will_paginate @portfolio_entries %>
 </div>
 <div id='actions'>
   <ul>
@@ -26,17 +27,7 @@
       <%= link_to t('.create_new_portfolio_entry'), new_admin_portfolio_entry_url,
                   :class => "add_icon" %>
     </li>
-   <% if @portfolio_entries.many? and !searching? %>
-    <li>
-      <%= link_to t('.reorder_portfolio'), "",
-                  :id => "reorder_action",
-                  :class => "reorder_icon" %>
-      <%= link_to t('.reorder_portfolio_done'), "",
-                  :id => "reorder_action_done",
-                  :style => "display: none;",
-                  :class => "reorder_icon" %>
-    </li>
-   <% end %>
+   
   </ul>
 </div>
 <% content_for :head_after_javascript_libraries,
