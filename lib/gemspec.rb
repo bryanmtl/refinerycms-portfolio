@@ -2,10 +2,7 @@
 require File.expand_path('../portfolio/version.rb', __FILE__)
 version = Refinery::Portfolio.version
 raise "Could not get version so gemspec can not be built" if version.nil?
-files = %w( readme.md license.md  )
-%w(app config generators lib public rails test vendor).each do |dir|
-  files += Dir.glob("#{dir}/**/*") if File.directory?(dir)
-end
+files = (Dir.glob("*") | Dir.glob("**/*")).reject{ |f| f =~ %r{.gem(spec)?$} }
 
 gemspec = <<EOF
 Gem::Specification.new do |s|
@@ -19,14 +16,11 @@ Gem::Specification.new do |s|
   s.authors           = ['Resolve Digital']
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '>= 0.9.8'
+  s.add_dependency    'refinerycms', '>= 0.9.9'
 
   s.files             = [
     '#{files.join("',\n    '")}'
   ]
-  #{"s.test_files        = [
-    '#{Dir.glob("test/**/*.rb").join("',\n    '")}'
-  ]" if File.directory?("test")}
 end
 EOF
 

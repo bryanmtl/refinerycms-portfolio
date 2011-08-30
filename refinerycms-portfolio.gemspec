@@ -1,19 +1,26 @@
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-portfolio}
-  s.version           = %q{0.9.9}
+  s.version           = %q{0.9.10}
   s.description       = %q{A really straightforward open source Ruby on Rails portfolio plugin designed for integration with RefineryCMS}
-  s.date              = %q{2010-12-02}
+  s.date              = %q{2011-08-22}
   s.summary           = %q{Ruby on Rails portfolio plugin for RefineryCMS.}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.authors           = ['Resolve Digital']
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '>= 0.9.8'
+  s.add_dependency    'refinerycms', '>= 0.9.9'
 
   s.files             = [
-    'readme.md',
+    'app',
+    'config',
+    'db',
+    'features',
+    'lib',
     'license.md',
+    'public',
+    'readme.md',
+    'spec',
     'app/controllers',
     'app/controllers/admin',
     'app/controllers/admin/portfolio_controller.rb',
@@ -28,6 +35,7 @@ Gem::Specification.new do |s|
     'app/views/admin/portfolio',
     'app/views/admin/portfolio/_form.html.erb',
     'app/views/admin/portfolio/_list.html.erb',
+    'app/views/admin/portfolio/_locale_picker.html.erb',
     'app/views/admin/portfolio/_sortable_list.html.erb',
     'app/views/admin/portfolio/edit.html.erb',
     'app/views/admin/portfolio/index.html.erb',
@@ -38,24 +46,36 @@ Gem::Specification.new do |s|
     'app/views/portfolio/index.html.erb',
     'app/views/portfolio/show.html.erb',
     'config/locales',
+    'config/locales/bg.yml',
     'config/locales/en.yml',
+    'config/locales/es.yml',
+    'config/locales/fr.yml',
+    'config/locales/it.yml',
     'config/locales/lt.yml',
     'config/locales/lv.yml',
+    'config/locales/nb.yml',
     'config/locales/nl.yml',
     'config/locales/pl.yml',
     'config/locales/pt-BR.yml',
+    'config/locales/rs.yml',
+    'config/locales/ru.yml',
     'config/locales/sl.yml',
     'config/routes.rb',
+    'db/migrate',
+    'db/migrate/1_create_structure_for_portfolio.rb',
+    'db/migrate/2_translate_portfolio_entries.rb',
+    'db/seeds',
+    'db/seeds/portfolio.rb',
+    'features/manage_portfolio.feature',
+    'features/step_definitions',
+    'features/step_definitions/portfolio_steps.rb',
+    'features/support',
+    'features/support/factories.rb',
+    'features/support/paths.rb',
+    'features/visit_portfolio.feature',
     'lib/gemspec.rb',
     'lib/generators',
-    'lib/generators/refinerycms_portfolio',
-    'lib/generators/refinerycms_portfolio/refinerycms_portfolio_generator.rb',
-    'lib/generators/refinerycms_portfolio/templates',
-    'lib/generators/refinerycms_portfolio/templates/db',
-    'lib/generators/refinerycms_portfolio/templates/db/migrate',
-    'lib/generators/refinerycms_portfolio/templates/db/migrate/migration_number_create_structure_for_portfolio.rb',
-    'lib/generators/refinerycms_portfolio/templates/db/seeds',
-    'lib/generators/refinerycms_portfolio/templates/db/seeds/portfolio.rb',
+    'lib/generators/refinerycms_portfolio_generator.rb',
     'lib/portfolio',
     'lib/portfolio/version.rb',
     'lib/portfolio.rb',
@@ -63,7 +83,8 @@ Gem::Specification.new do |s|
     'public/javascripts',
     'public/javascripts/portfolio.js',
     'public/stylesheets',
-    'public/stylesheets/portfolio.css'
+    'public/stylesheets/portfolio.css',
+    'spec/models',
+    'spec/models/portfolio_entry_spec.rb'
   ]
-  
 end
